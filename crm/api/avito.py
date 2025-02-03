@@ -294,7 +294,7 @@ def process_avito_message(
     settings = frappe.get_doc("Avito Settings")
     if settings.token_expires_in == None or \
        settings.token == None or \
-       datetime.strptime(settings.token_expires_in, '%Y-%m-%d %H:%M:%S.%f') < datetime.now():
+       datetime.strptime(settings.token_expires_in, '%Y-%m-%d %H:%M') < datetime.now():
         settings.update_auth_token()
     
     try:
